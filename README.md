@@ -1,4 +1,4 @@
-**TODOLIST CRUD (Create Read Update Delete)**
+# TODOLIST CRUD (*Create Read Update Delete*)
 
 Stack totalement inconnue et premier essai en suivant le tuto de **Ben BK Tech** (*merci a lui pour ses supers tutos*)
 
