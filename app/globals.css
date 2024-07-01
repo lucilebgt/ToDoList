@@ -1,15 +1,17 @@
 .background {
-    background: rgb(251,237,255);
-    background: radial-gradient(circle, rgba(251,237,255,1) 0%, rgba(255,255,255,1) 36%);
+    background: rgb(238, 222, 241);
+    background:
+    radial-gradient(ellipse at top, #a37588, transparent),
+            radial-gradient(ellipse at bottom, #a47085, transparent);
 }
 
 .tasklist-title {
-    background-image: linear-gradient(45deg, #ff8a00, #e52e71);
+    background-image: linear-gradient(45deg, #3bec23e6, #e3ed54);
+    font-size:4rem;
     -webkit-background-clip: text;
-    background-clip: initial;
     color: transparent;
 }
 
 .tasklist-slogan {
-    color: #333333;
+    font-size:2rem;
 }

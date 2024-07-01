@@ -4,7 +4,7 @@ import { TaskProps } from '@/types';
 
 const Task = ({ individualTask, handleCompletedTask, handleDeleteTask }: TaskProps) => {
     return (
-        <Card p="2rem" mb="0.5rem" variant="outline">
+        <Card p="2rem" mb="0.5rem" variant="outline" bgColor="#f0f0f2">
             <Flex alignItems="center">
                 {individualTask.completed ? (
                     <Text flexGrow="1" as="del">
@@ -19,19 +19,19 @@ const Task = ({ individualTask, handleCompletedTask, handleDeleteTask }: TaskPro
                     {individualTask.completed ? (
                         <Button isDisabled
                             ml="1rem"
-                            color="whatsapp"
+                            colorScheme="whatsapp"
                         ><CheckIcon /></Button>
                     ) : (
                         <Button
                             ml="1rem"
-                            color="whatsapp"
+                            colorScheme="whatsapp"
                             onClick={() => handleCompletedTask(individualTask._id)}
                         ><CheckIcon /></Button>
                     )
                     }
                     <Button
                         ml="1rem"
-                        color="red"
+                        colorScheme="red"
                         onClick={() => handleDeleteTask(individualTask._id)}
                     ><DeleteIcon /></Button>
                 </Flex>

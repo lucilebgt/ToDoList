@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import AddTask from "@/components/AddTask";
@@ -7,14 +7,16 @@ import Task from "@/components/Task";
 import Loading from "@/components/Loading";
 
 import { ITask } from "@/types";
-import { Flex, Spinner } from '@chakra-ui/react';
-import { log } from "console";
+import { Flex } from '@chakra-ui/react';
+
 
 export default function Home() {
 
   const [task, setTask] = useState('');
   const [isLoading, setIsLoading] = useState(true)
   const [allTasks, setAllTasks] = useState([])
+
+  //= function to create a task
 
   const handleCreateTask = async () => {
     setIsLoading(true)
@@ -37,6 +39,8 @@ export default function Home() {
     setIsLoading(false)
   }
 
+
+  //= function to fetch all tasks
   const fetchTasks = async () => {
     try {
       const response = await fetch("/api/task/all")
@@ -49,6 +53,8 @@ export default function Home() {
     }
   }
 
+
+  //= function to cross a task
   const handleCompletedTask = async (id: string) => {
     try {
       const response = await fetch(`/api/task/completed/${id}`, {
@@ -64,6 +70,8 @@ export default function Home() {
     }
   }
 
+
+  //= function to delete a task
   const handleDeleteTask = async (id: string) => {
     try {
       const response = await fetch(`/api/task/delete/${id}`, {
@@ -101,7 +109,6 @@ export default function Home() {
                 <NoTask />
               )
             }
-
           </Flex>
         </>
       )}
