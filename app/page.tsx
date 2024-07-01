@@ -32,6 +32,7 @@ export default function Home() {
     }
     setIsLoading(false)
   }
+
   const fetchTasks = async () => {
     try {
       const response = await fetch("/api/task/all")
@@ -45,7 +46,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // fetchTasks(task)
+    fetchTasks()
   }, [])
 
   return (

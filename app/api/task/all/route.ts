@@ -9,7 +9,7 @@ export const GET = async (request: Request) => {
         const tasks = await Task.find({})
         return NextResponse.json(
             tasks,
-            { status: 20 }
+            { status: 200 }
         )
     }
     catch (error) {
