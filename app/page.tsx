@@ -4,10 +4,11 @@ import Header from "@/components/Header";
 import AddTask from "@/components/AddTask";
 import NoTask from "@/components/NoTask";
 import Task from "@/components/Task";
+import Loading from "@/components/Loading";
 
 import { ITask } from "@/types";
-// import IndividualTask from "@components/IndividualTask";
 import { Flex, Spinner } from '@chakra-ui/react';
+import { log } from "console";
 
 export default function Home() {
 
@@ -48,9 +49,37 @@ export default function Home() {
     }
   }
 
-  const handleCompletedTask = async () => { }
+  const handleCompletedTask = async (id: string) => {
+    try {
+      const response = await fetch(`/api/task/completed/${id}`, {
+        method: "PATCH"
+      })
+      if (response.ok) {
+        await fetchTasks()
+      }
+      else { console.log('error completing task') }
+    }
+    catch (error) {
+      console.log('error');
+    }
+  }
 
-  const handleDeleteTask = async () => { }
+  const handleDeleteTask = async (id: string) => {
+    try {
+      const response = await fetch(`/api/task/delete/${id}`, {
+        method: "DELETE"
+
+      })
+      if (response.ok) {
+        setAllTasks((prevTasks) => prevTasks.filter((task: ITask) => task._id !== id))
+      }
+      else { console.log('error') }
+    }
+    catch (error) {
+      console.log(error);
+
+    }
+  }
 
   useEffect(() => {
     fetchTasks()
@@ -61,13 +90,13 @@ export default function Home() {
       <Header />
       <AddTask task={task} setTask={setTask} handleCreateTask={handleCreateTask} />
       {isLoading ? (
-        <Spinner />
+        <Loading />
       ) : (
         <>
           <Flex direction="column" p="2rem">
             {allTasks.length > 0 ?
               allTasks.map((individualTask: ITask) => (
-                <Task key={individualTask._id} individualTask={individualTask} handleCompledteTask={handleCompletedTask} handleDeleteTask={handleDeleteTask} />
+                <Task key={individualTask._id} individualTask={individualTask} handleCompletedTask={handleCompletedTask} handleDeleteTask={handleDeleteTask} />
               )) : (
                 <NoTask />
               )

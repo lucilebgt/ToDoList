@@ -1,7 +1,6 @@
 
-// import './global.css'
+import './globals.css'
 import type { Metadata } from "next"
-
 import { ChakraProvider } from "@chakra-ui/react"
 
 
@@ -25,25 +24,3 @@ export default function RootLayout({
     </html>
   );
 }
-// const styles = StyleSheet.create{
-//   background {
-//     background: rgb(251, 237, 255);
-// backgroundRadialGradient(circle, rgba(251, 237, 255, 1) 0 %, rgba(255, 255, 255, 1) 36 %);
-// }
-
-// tasklist {
-//   title: {
-//     backgroundImage: {
-//       linearGradient:(45deg, #ff8a00, #e52e71);
-//     }
-//     webkitBackgroundClip: 'text'
-//   };
-//   backgroundClip: 'initial';
-//   color: 'transparent';
-// }
-
-// tasklist - slogan: {
-
-//   color: #333333;
-// }
-// }
