@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import AddTask from "@/components/AddTask";
+import NoTask from "@/components/NoTask";
+import Task from "@/components/Task";
+
 import { ITask } from "@/types";
 // import IndividualTask from "@components/IndividualTask";
 import { Flex, Spinner } from '@chakra-ui/react';
@@ -45,6 +48,10 @@ export default function Home() {
     }
   }
 
+  const handleCompletedTask = async () => { }
+
+  const handleDeleteTask = async () => { }
+
   useEffect(() => {
     fetchTasks()
   }, [])
@@ -60,11 +67,10 @@ export default function Home() {
           <Flex direction="column" p="2rem">
             {allTasks.length > 0 ?
               allTasks.map((individualTask: ITask) => (
-                <p>{individualTask.task}</p>
+                <Task key={individualTask._id} individualTask={individualTask} handleCompledteTask={handleCompletedTask} handleDeleteTask={handleDeleteTask} />
               )) : (
-                <p>No task found</p>
+                <NoTask />
               )
-
             }
 
           </Flex>
